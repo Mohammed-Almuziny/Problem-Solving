@@ -4,7 +4,7 @@ const whosOnline = (friends) => {
     offline: [],
     away: [],
   };
-  
+
   friends.forEach((friend) => {
     if (friend.status === "offline") {
       result.offline.push(friend.username);

@@ -28,7 +28,7 @@ function isLanguageDiverse(list) {
   return true;
 }
 
-list1 = [
+const list1 = [
   {
     firstName: "Daniel",
     lastName: "J.",
@@ -79,7 +79,7 @@ list1 = [
   },
 ];
 
-var list2 = [
+const list2 = [
   {
     firstName: "Daniel",
     lastName: "J.",
@@ -122,7 +122,7 @@ var list2 = [
   },
 ];
 
-var list3 = [
+const list3 = [
   {
     firstName: "Daniel",
     lastName: "J.",
@@ -157,6 +157,6 @@ var list3 = [
   },
 ];
 
-console.log(isLanguageDiverse(list1));
-console.log(isLanguageDiverse(list2));
-console.log(isLanguageDiverse(list3));
+console.log("list1: ", isLanguageDiverse(list1));
+console.log("list2: ", isLanguageDiverse(list2));
+console.log("list3: ", isLanguageDiverse(list3));

@@ -360,13 +360,13 @@ describe("Testing challenge 8", () => {
 describe("Testing challenge 9", () => {
   test("It should remove the even numbers from the array", () => {
     let list = [1, 2, 3, 4, 5, 6];
-    removeEvenValues(list);
-    expect(list).toStrictEqual([1, 3, 5]);
+
+    expect(removeEvenValues(list)).toStrictEqual([1, 3, 5]);
 
     list = [6, 3, 19, 43, 12, 66, 43];
-    removeEvenValues(list);
-    expect(list).toStrictEqual([3, 19, 43, 43]);
-    expect(list.length).toStrictEqual(4);
+    
+    expect(removeEvenValues(list)).toStrictEqual([3, 19, 43, 43]);
+    expect(removeEvenValues(list).length).toStrictEqual(4);
   });
 });
 

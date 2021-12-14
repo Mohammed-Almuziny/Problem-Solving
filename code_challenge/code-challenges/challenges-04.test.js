@@ -7,7 +7,11 @@ Write a function called addTwo that takes in an array and adds two to every valu
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
-  // Solution code here...
+  const result = [];
+  for (const num of arr) {
+    result.push(num + 2);
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -18,7 +22,7 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
-  // Solution code here...
+  return str.match(/w/) ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,7 +38,7 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
+  return input.toString().match(/\d/) ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +49,7 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
-  // Solution code here...
+  return input.toString().match(/world/) ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,7 +61,7 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  return str.match(/[A-Z][a-z]+(?: [A-Z][a-z]+)*/g) || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,7 +70,13 @@ CHALLENGE 6
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 const citiesAtoJ = (arr) => {
-  // Solution code here...
+  const result = [];
+
+  arr.forEach((city) => {
+    city.match(/^[A-J]/g) && result.push(city);
+  });
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -82,7 +92,13 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  const month = ["October", "Oct", "october", "oct"];
+
+  for (const m of month) {
+    if (input.toString().match(RegExp("^" + m + "$"))) return true;
+  }
+
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,7 +112,7 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = (str) => {
-  // Solution code here...
+  return str.match(/\w*\b\s/g) || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -104,7 +120,7 @@ CHALLENGE 9 - Stretch Goal
 
 You want to teach a friend how to play hangman and want to show them using a partially complete puzzle.
 
-Write a function named hangman which uses the replace method to remove all of the vowels (a, e, i, o, u) from the hangman string, regardless of capitalization, and replace them with an underscore.
+Write a function named hangman which uses the replace method to remove all of the vowels () from the hangman string, regardless of capitalization, and replace them with an underscore.
 
 The function should return a string containing the consonants in their original positions and underscores where the vowels were previously located.
 
@@ -112,7 +128,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+  return str.replace(/[a|e|i|o|u|A|E|I|O|U]/g, "_");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -129,7 +145,7 @@ const seashells =
   "She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I'm sure she sells seashore shells.";
 
 const findShells = (str) => {
-  // Solution code here...
+  return str.match(/\w*ells\b/g);
 };
 
 /* ------------------------------------------------------------------------------------------------

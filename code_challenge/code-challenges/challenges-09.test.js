@@ -19,7 +19,13 @@ Becomes:
 ------------------------------------------------------------------------------------------------ */
 
 function transformToLis(obj) {
-  // Solution code here...
+  const result = [];
+
+  for (let item of Object.entries(obj)) {
+    result.push(`<li>${item[0]}: ${item[1]}</li>`);
+  }
+
+  return result;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -30,7 +36,9 @@ Write a function named addValues that, given an array of numbers as input, uses 
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,7 +54,9 @@ Write a function named addPurchases that, given an array of objects as input, us
 ------------------------------------------------------------------------------------------------ */
 
 const addPurchases = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, curr) => {
+    return acc + curr.purchasePrice;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,7 +68,9 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc) => {
+    return acc + 1;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,7 +133,10 @@ let starWarsData = [
 ];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, curr) => {
+    acc.push(curr.name);
+    return acc;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -133,7 +148,14 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  return str
+    .split("")
+    .reduce((acc, curr) => {
+      acc.unshift(curr);
+
+      return acc;
+    }, [])
+    .join("");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -186,7 +208,11 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, curr) => {
+    if (curr.children) acc += curr.children.length;
+
+    return acc;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -198,7 +224,17 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  const result = arr.reduce(
+    (acc, curr) => {
+      acc.count++;
+      acc.sum += curr;
+
+      return acc;
+    },
+    { count: 0, sum: 0 }
+  );
+
+  return result.sum / result.count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -219,7 +255,11 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, curr) => {
+    if (isPrime(curr)) acc++;
+
+    return acc;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -262,7 +302,11 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((acc, curr) => {
+    if (curr.stat.name === statName) acc = curr;
+
+    return acc;
+  }, null);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -276,7 +320,13 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  return arr
+    .filter((ele) => ele.name.match("a"))
+    .reduce((acc, curr) => {
+      if (curr.children) acc.push(...curr.children);
+
+      return acc;
+    }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
